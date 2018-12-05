@@ -1,0 +1,60 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/RootMasterPage.master" AutoEventWireup="true" CodeFile="Standards.aspx.cs" Inherits="Standards" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+  <b class="rnd_top"><b class="rnd_b1"></b><b class="rnd_b2"></b><b class="rnd_b3"></b>
+        <b class="rnd_b4"></b></b>
+    <div class="rnd_content">
+        <h1>
+            Standards Heading one Style</h1>
+        <h2>
+            Standards Heading two style</h2>
+        <p>
+            ADB Consulting provides service to most areas within the United States. ADB Consulting
+            is an equal opportunity employer and operates well within the scope of Fair Labor
+            Standards Act (FLSA). We are dedicated to providing quality work environments for
+            our employees.</p>
+        <p>
+            ADB Consulting welcomes business opportunities. <a href="#">link style</a> for information
+            about becoming an ADB Consulting Alliance Partner or a preferred vendor. <a href="mailto:management@adbccro.com">
+                management@adbccro.com</a>.</p>
+        <p>
+            In our data management processes and systems, we utilize standards, requirements,
+            and guide-lines that are adopted by regulated and surrounding industries:</p>
+        <p>
+            We are dedicated to providing quality work environments for our employees.we utilize
+            standards, requirements, and guide-lines that are adopted by regulated and surrounding
+            industries: &nbsp;<a href="#" class="more">MORE</a></p>
+        <p>
+            Bulleted Content</p>
+        <ul>
+            <li>Standards</li>
+            <li>Requirements</li>
+            <li>Employment</li>
+            <li>Rules &amp; Regulations</li>
+            <li>Workings</li>
+        </ul>
+        <p>
+            In our data management processes and systems, we utilize standards, requirements,
+            and guide-lines that are adopted by regulated and surrounding industries:</p>
+        <p>
+            ADB Consulting provides service to most areas within the United States. ADB Consulting
+            is an equal opportunity employer and operates well within the scope of Fair Labor
+            Standards Act (FLSA). We are dedicated to providing quality work environments for
+            our employees.</p>
+        <p>
+            Ordered bullet style</p>
+        <ol>
+            <li>Standards</li>
+            <li>Out-sourcing</li>
+            <li>Clinical monitoring</li>
+        </ol>
+    </div>
+    <!--rnd_content-->
+    <b class="rnd_bottom"><b class="rnd_b4"></b><b class="rnd_b3"></b><b class="rnd_b2">
+    </b><b class="rnd_b1"></b></b>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+</asp:Content>
+

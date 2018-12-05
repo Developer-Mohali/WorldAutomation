@@ -1,0 +1,107 @@
+﻿<?xml version="1.0"?>
+<configuration>
+	<configSections>
+		<section name="ADB.Data" type="ADB.Data.Bases.NetTiersServiceSection, ADB.Data" allowDefinition="MachineToApplication" restartOnExternalChanges="true"/>
+		<section name="enterpriseLibrary.ConfigurationSource" type="Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ConfigurationSourceSection, Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+	</configSections>
+	<appSettings>
+		<add key="fromEmail" value="Andre.Butler@adbccro.com"/>
+		<add key="SMTPAddress" value="localhost"/>
+		<add key="DbSqlConnection" value="Data Source=Apex\ApexSQL;Initial Catalog=ADP;User ID=devuser; Password=d3vus3r"/>
+		<add key="Url" value="http://localhost:3240/sectorstaffing/"/>
+		<add key="AdminEmail" value=""/>
+		<add key="Smtp" value="localhost"/>
+		<add key="Port" value="25"/>
+		<add key="SenderName" value="Adb Consulting"/>
+		<add key="ToMailAddress" value="pbtechno@gmail.com"/>
+		<add key="SMTP" value="smtp.gmail.com"/>
+		<add key="SMTPPORT" value=""/>
+		<add key="PASSWORD" value=""/>
+		<add key="FolderPath" value="services"/>
+	</appSettings>
+	<connectionStrings>
+		<!--<add name="ADB.Data.ConnectionString" connectionString="Data Source=adbcorpdb.db.2723569.hostedresource.com;Initial Catalog=adbcorpdb;User ID=adbcorpdb; Password=IMP5822!!a" providerName="System.Data.SqlClient"/>-->
+    <add name="ADB.Data.ConnectionString" connectionString="Data Source=Apex\ApexSQL;Initial Catalog=ADP;User ID=devuser; Password=d3vus3r" providerName="System.Data.SqlClient"/>
+
+  </connectionStrings>
+	<ADB.Data defaultProvider="SqlNetTiersProvider">
+		<providers>
+			<!--
+				*** SqlClient Provider ***
+					connectionStringName: sqlclient connection string to the db
+					useStoredProcedure: if true, indicates that we use the stored procedures, otherwise, we use parametrized queries that are embedded.
+			-->
+			<add name="SqlNetTiersProvider" type="ADB.Data.SqlClient.SqlNetTiersProvider, ADB.Data.SqlClient" connectionStringName="ADB.Data.ConnectionString" providerInvariantName="System.Data.SqlClient" entityFactoryType="ADB.Entities.EntityFactory" useEntityFactory="true" enableEntityTracking="true" enableMethodAuthorization="false" useStoredProcedure="false" defaultCommandTimeout="30"/>
+		</providers>
+	</ADB.Data>
+	<system.web>
+		<pages theme="custom" controlRenderingCompatibilityVersion="3.5" clientIDMode="AutoID">
+			<controls>
+				<add tagPrefix="data" namespace="ADB.Web.Data" assembly="ADB.Web"/>
+				<add tagPrefix="data" namespace="ADB.Web.UI" assembly="ADB.Web"/>
+			</controls>
+		</pages>
+		<httpModules>
+			<add name="EntityTransactionModule" type="ADB.Web.Data.EntityTransactionModule, ADB.Web"/>
+		</httpModules>
+		<!-- 
+            Set compilation debug="true" to insert debugging 
+            symbols into the compiled page. Because this 
+            affects performance, set this value to true only 
+            during development.
+        -->
+		<compilation debug="true" targetFramework="4.0">
+		</compilation>
+		<!--
+            The <authentication> section enables configuration 
+            of the security authentication mode used by 
+            ASP.NET to identify an incoming user. 
+        <authentication mode="Windows" />
+        -->
+		<authentication mode="Forms">
+			<forms defaultUrl="QuoteRequest.aspx" loginUrl="Login.aspx" cookieless="AutoDetect">
+			</forms>
+		</authentication>
+		<!--
+            The <customErrors> section enables configuration 
+            of what to do if/when an unhandled error occurs 
+            during the execution of a request. Specifically, 
+            it enables developers to configure html error pages 
+            to be displayed in place of a error stack trace.
+-->
+		<customErrors mode="Off" defaultRedirect="GenericErrorPage.htm">
+			<error statusCode="403" redirect="NoAccess.htm"/>
+			<error statusCode="404" redirect="FileNotFound.htm"/>
+		</customErrors>
+	</system.web>
+	<location path="Quote">
+		<system.web>
+			<authorization>
+				<deny users="?"/>
+			</authorization>
+		</system.web>
+	</location>
+	<location path="Quote/SignUp.aspx">
+		<system.web>
+			<authorization>
+				<allow users="*"/>
+			</authorization>
+		</system.web>
+	</location>
+	<enterpriseLibrary.ConfigurationSource selectedSource="File Configuration Source">
+		<sources>
+			<add name="File Configuration Source" type="Microsoft.Practices.EnterpriseLibrary.Common.Configuration.FileConfigurationSource, Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" filePath="entlib.config"/>
+		</sources>
+	</enterpriseLibrary.ConfigurationSource>
+
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true" />
+  </system.webServer>
+  <system.net>
+    <mailSettings>
+      <smtp deliveryMethod="Network" from="admin@adbccro.com">
+        <network host="cmail.adbccro.com" port="25"/>
+      </smtp>
+    </mailSettings>
+  </system.net>
+</configuration>

@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic; 
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Net.Mail;
+using System.Net;
+public partial class contact_us_form : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnSendMessage_Click(object sender, EventArgs e)
+    {
+        MailMessage mailMsg = null;
+        try
+        {
+            mailMsg = new MailMessage();
+            mailMsg.To.Add(System.Configuration.ConfigurationManager.AppSettings["ToMailAddress"].ToString());
+            mailMsg.From = new MailAddress(txtEmail.Text.Trim());
+            mailMsg.Subject = txtSubject.Text.Trim();
+            mailMsg.Body = txtMessage.Text.Trim();
+
+            SmtpClient client = new SmtpClient();
+            client.Host = System.Configuration.ConfigurationManager.AppSettings["SMTP"].ToString();
+            client.Port = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SMTPPORT"].ToString());
+            client.Credentials = new NetworkCredential(System.Configuration.ConfigurationManager.AppSettings["ToMailAddress"].ToString(), System.Configuration.ConfigurationManager.AppSettings["PASSWORD"].ToString());
+            client.EnableSsl = true;
+            client.Send(mailMsg);
+            lblmsg.Visible = true;
+            lblmsg.Text = "Message is successfully sent";
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+}

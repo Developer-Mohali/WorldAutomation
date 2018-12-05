@@ -1,0 +1,118 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/RootMasterPage.master"
+    AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="ContactUs" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <b class="rnd_top"><b class="rnd_b1"></b><b class="rnd_b2"></b><b class="rnd_b3"></b>
+        <b class="rnd_b4"></b></b>
+    <div class="rnd_content">
+        <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+            <asp:View ID="View1" runat="server">
+                <h1>
+                    Contact Us</h1>
+                <div class="message">
+                    <asp:Label ID="lblMessege" runat="server" EnableViewState="False" Font-Bold="True"
+                        ForeColor="Red"></asp:Label>
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True"
+                        ShowSummary="False" />
+                </div>
+                <div class="pbar2">
+                    <ul>
+                        <li style="text-align: right;">Please! specify who would you like to address your query?
+                            <asp:DropDownList ID="ddlDetails" runat="server" TabIndex="1" SkinID="marginDropDown">
+                                <asp:ListItem>Technical Support</asp:ListItem>
+                                <asp:ListItem>Customer Inquiry</asp:ListItem>
+                            </asp:DropDownList>
+                        </li>
+                    </ul>
+                </div>
+                <ul id="formwiz">
+                    <li><span>First Name:</span>
+                        
+                            <asp:TextBox ID="txtFirstName" runat="server" TabIndex="2"></asp:TextBox>
+                    </li>
+                    <li><span>Last Name:</span>
+                        <asp:TextBox ID="txtLastName" runat="server" TabIndex="3"></asp:TextBox>
+                    </li>
+                    <li><span>Company:</span>
+                        <asp:TextBox ID="txtCompany" runat="server" TabIndex="4"></asp:TextBox>
+                    </li>
+                    <li><span>Email:</span>
+                        <asp:TextBox ID="txtEmail" runat="server" TabIndex="5"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail"
+                            Display="None" ErrorMessage="Valid Email required." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtEmail"
+                            Display="None" ErrorMessage="Email required."></asp:RequiredFieldValidator>
+                    </li>
+                    <li>Message: </li>
+                    <li>
+                        <asp:TextBox ID="txtMessage" runat="server" Height="99px" TextMode="MultiLine" Width="640px"
+                            TabIndex="6"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtMessage"
+                            Display="None" ErrorMessage="Message required."></asp:RequiredFieldValidator>
+                    </li>
+                    <li><span></span>
+                        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click"
+                            TabIndex="7" />
+                    </li>
+                </ul>
+                <br />
+            </asp:View>
+            <asp:View ID="View2" runat="server">
+                <table class="msg">
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td class="bigFont">
+                            <div class="bigFont">
+                                Thanks for contacting us.</div>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </asp:View>
+        </asp:MultiView>
+    </div>
+    <b class="rnd_bottom"><b class="rnd_b4"></b><b class="rnd_b3"></b><b class="rnd_b2">
+    </b><b class="rnd_b1"></b></b>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+</asp:Content>

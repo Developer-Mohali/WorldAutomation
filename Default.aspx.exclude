@@ -1,0 +1,130 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/RootMasterPage.master"
+    AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <b class="rnd_top"><b class="rnd_b1"></b><b class="rnd_b2"></b><b class="rnd_b3"></b>
+        <b class="rnd_b4"></b></b>
+    <div class="rnd_content">
+        <h1>
+            Welcome To ADB Consulting &amp; CRO Inc.</h1>
+        <h2>
+            Our Company</h2>
+        <p>
+            ADB Consulting provides service to most areas within the United States. ADB Consulting
+            is an equal opportunity employer and operates well within the scope of Fair Labor
+            Standards Act (FLSA). We are dedicated to providing quality work environments for
+            our employees.</p>
+        <p>
+            ADB Consulting welcomes business opportunities. <a href="#">Contact us</a> for information
+            about becoming an ADB Consulting Alliance Partner or a preferred vendor. <a href="mailto:management@adbccro.com">
+                management@adbccro.com</a>.</p>
+        <p>
+            In our data management processes and systems, we utilize standards, requirements,
+            and guide-lines that are adopted by regulated and surrounding industries:</p>
+        <p>
+            We are dedicated to providing quality work environments for our employees.we utilize
+            standards, requirements, and guide-lines that are adopted by regulated and surrounding
+            industries: &nbsp;<a href="#" class="more">MORE</a></p>
+    </div>
+    <!--rnd_content-->
+    <b class="rnd_bottom"><b class="rnd_b4"></b><b class="rnd_b3"></b><b class="rnd_b2">
+    </b><b class="rnd_b1"></b></b>
+    <div id="centercontent">
+        <div id="services">
+            <h2>
+                Services</h2>
+            <div class="serv-list">
+                <ul>
+                    <li>In-service &amp; out-sourcing</li>
+                    <li>clinical study setup</li>
+                    <li>clinical study management</li>
+                    <li>clinical monitoring</li>
+                    <li>clinical study auditing</li>
+                    <li>Data management</li>
+                    <li>Bio-statistics</li>
+                    <li>medical Data coding</li>
+                    <li>Data Analysis</li>
+                    <li>Reporting</li>
+                    <li>Staffing</li>
+                    <li>Brochures</li>
+                </ul>
+            </div>
+            <!--serv-list-->
+            <div class="serv-content">
+                <h3>
+                    Our Standards</h3>
+                The services we provide are governed by our proven standards created from the years
+                of experience of our experts. Our standards are some of the best business practices
+                propelled by requirements of the clinical research governing agencies. The main
+                goal of ensuring we operate by standards is to help maintain levels of quality,
+                safety, reliability, efficiency, compatibility, and interchangeability at economical
+                costs.<br />
+                <br />
+                Our standards are some of the best business practices propelled by requirements
+                of the clinical research governing agencies. The main goal of ensuring we operate
+                by standards is to help maintain levels of quality, safety, reliability, efficiency,
+                compatibility, and interchangeability at economical costs.
+                <br />
+                <br />
+                The main goal of ensuring we operate by standards is to help maintain levels of
+                quality, safety, reliability, efficiency, compatibility, and interchangeability
+                at economical costs. <span class="more"><a href="#" class="more">MORE</a></span>.....
+            </div>
+            <!--serv-content-->
+        </div>
+        <!--services-->
+        <div id="widget">
+            <div class="live-hlp">
+                <br />
+                <br />
+                <span class="click">Clickhere For</span> <a class="livehlp" href="#">LIVE HELP</a>
+            </div>
+            <!--live-hlp-->
+            <div class="clear">
+            </div>
+            <div class="clients">
+                <h2>
+                    <a href="#">OUR CLIENTS:</a></h2>
+                <h3>
+                    All over the world</h3>
+                <h3>
+                    Feel our Services</h3>
+                <div class="clear">
+                </div>
+            </div>
+            <!--clients-->
+        </div>
+        <!--widget-->
+        <div class="clear">
+        </div>
+    </div>
+    <!--centrcontent-->
+    <div class="clear">
+    </div>
+    <div class="contntbotm">
+        <b class="rnd_top"><b class="rnd_b1"></b><b class="rnd_b2"></b><b class="rnd_b3"></b>
+            <b class="rnd_b4"></b></b>
+        <div class="rnd_content">
+            <div class="function1">
+                <h2>
+                    <a href="#">In-service &amp; out-sourcing</a></h2>
+            </div>
+            <div class="function2">
+                <h2>
+                    <a href="#">Clinical monitoring</a></h2>
+            </div>
+            <div class="function3">
+                <h2>
+                    <a href="#">Staffing</a></h2>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <!--rnd_content-->
+    </div>
+    <!--contntbotm-->
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+</asp:Content>

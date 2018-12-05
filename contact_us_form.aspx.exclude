@@ -1,0 +1,132 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="contact_us_form.aspx.cs"
+    Inherits="contact_us_form" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>ADB Consulting & CRO Inc. Data Management, Biostatistics and Staffing Services
+    </title>
+    <style type="text/css">
+        .servicehead
+        {
+            color: #E6BE01;
+            font-size: 17px;
+            font-weight: bolder;
+            padding-left: 0px;
+            font-family: Arial;
+        }
+        .contentbg
+        {
+            background: url(../images/bg.jpg) left top repeat-x;
+            padding: 20px 0;
+        }
+        .contwhitebg
+        {
+            background: #FFF;
+            border: solid #a9c7e0;
+            border-width: 0 1px 0 1px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="frmContactForm" runat="server">
+    <table width="1008" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="contentbg" align="center">
+                <table width="980" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+                            <img src="images/cont_top_bg.jpg" alt="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="contwhitebg" valign="top">
+                            <table cellpadding="3" cellspacing="3" border="0">
+                                <tr>
+                                    <td colspan="3" align="center">
+                                        <asp:Label id="lblmsg" runat="server" Visible="false"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" align="center" class="servicehead">
+                                        Contact
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Name :
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="txtName" Width="85%" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Email :
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="txtEmail" Width="85%" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="rfvEmail" ControlToValidate="txtEmail" runat="server"
+                                            ErrorMessage="You did not enter a Email Address" Display="Dynamic"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail"
+                                            ErrorMessage="You did not enter a valid email address" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Subject :
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="txtSubject" Width="85%" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="RfvSubject" ControlToValidate="txtSubject" runat="server"
+                                            ErrorMessage="You did not enter a Subject" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Message :
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="txtMessage" TextMode="MultiLine" Columns="50" Height="250px" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td valign="top">
+                                        <asp:RequiredFieldValidator ID="RfvMessage" ControlToValidate="txtMessage" runat="server"
+                                            ErrorMessage="You did not enter a Message" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr align="left">
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <asp:Button ID="btnSendMessage" runat="server" Text="Send Message" OnClick="btnSendMessage_Click" />
+                                    </td>
+                                    <td valign="top">
+                                    </td>
+                                </tr>
+                                <tr align="left">
+                                    <td colspan="2">
+                                        Powered by ADB Consulting <a href="http://www.adbccro.com" target="_blank">ASPProtect</a>
+                                        and <a href="http://www.aspbanner.com" target="_blank">ASPBanner</a>.
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/cont_bottom_bg.jpg" alt="" />
+                        </td>
+                    </tr>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

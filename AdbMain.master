@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdbMain.master.cs" Inherits="MasterPage_AdbMain" %>
+<%@ Register Src="~/UserControls/Header.ascx" TagName="HeaderCtl" TagPrefix="Adb" %>
+<%@ Register Src="~/UserControls/OuterFooter.ascx" TagName="FooterCtl" TagPrefix="Adb" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title>ADB Consulting & CRO Inc. Data Management, Biostatistics and Staffing Services
+    </title>
+    <script type="text/javascript" language="javascript" src="Common/Calendar/CalendarControl.js"></script>
+    <link type="text/css" href="Common/Calendar/CalendarControl.css" rel="stylesheet" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript">
+
+            function Clear() {
+
+                $('#aspnetForm')[0].reset();
+            }
+    </script>
+   
+</head>
+<body>  
+ <div id="zazacontainer" style="display: none;text-align:left; position:fixed;margin-top:500px;margin-left:0x;">
+<script type="text/javascript">
+    document.write(unescape("%3Cscript src='http://zazachat.zazasoftware.com/livechatclient/scripts/zazamagic.aspx?div=&zimg=10&zazac=14828&iv=1&iwidth=120&iheight=60&zzwindow=0&d=0&custom1=&custom2=&custom3=' type='text/javascript'%3E%3C/script%3E"));</script>
+	
+
+</div>                                                
+ <div id="page_wrap1">
+<div id="page_wrap2">
+  <div id="page_wrap">
+
+    <form id="form1" runat="server">
+     <asp:ScriptManager ID="ScriptManagerAdmin" runat="server">
+    </asp:ScriptManager>
+    <div>
+   
+     <Adb:HeaderCtl ID="HeaderCtl" runat="server" />
+       <div id="midcontent">
+       
+        <asp:ContentPlaceHolder ID="cphMain" runat="server">
+        </asp:ContentPlaceHolder>
+           </div>                          
+         </div>
+         </form>
+         </div>
+         <Adb:FooterCtl ID="FooterCtl" runat="server" />
+    </div>
+    </div>
+</body>
+</html>

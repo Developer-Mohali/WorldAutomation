@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Collections;
+using System.Configuration;
+
+public partial class ContactUs : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        SendEmail();
+        //lblMessege.Text = "Thank you for submitting your query.";
+        MultiView1.ActiveViewIndex += 1;
+        Reset();
+    }
+
+    private void Reset()
+    {
+        txtFirstName.Text = "";
+        txtLastName.Text = "";
+        txtCompany.Text = "";
+        txtEmail.Text = "";
+        txtMessage.Text = "";
+    }
+
+    private void SendEmail()
+    {
+        try
+        {
+            EmailHelper objEmail = new EmailHelper();
+            objEmail.ToAddress = ConfigurationManager.AppSettings["fromEmail"].ToString();
+            objEmail.Template = "~/EmailTemplates/ContactUs.htm";
+            objEmail.Subject = "Customer query";
+
+            Hashtable objReplacements = new Hashtable();
+            objReplacements.Add("#FirstName#", txtFirstName.Text.Trim());
+            objReplacements.Add("#LastName#", txtLastName.Text.Trim());
+            objReplacements.Add("#Company#", txtCompany.Text.Trim());
+            objReplacements.Add("#Email#", txtEmail.Text.Trim());
+            objReplacements.Add("#Message#", txtMessage.Text.Trim());
+            objReplacements.Add("#Details#", ddlDetails.SelectedValue.ToString());
+
+            objEmail.Replacements = objReplacements;
+            objEmail.Email();
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+}

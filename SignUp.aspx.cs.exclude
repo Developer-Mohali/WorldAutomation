@@ -1,0 +1,86 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using ADB.Entities;
+using ADB.Services;
+using System.Collections;
+using DataAccessLayer.DataContext;
+using Adb.BusinessLayer;
+
+
+public partial class Quote_SignUp : System.Web.UI.Page
+{
+    Adb.BusinessLayer.User objUser = new Adb.BusinessLayer.User();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        int returnResult = Constant.DefaultZero;
+
+        Users objusers = new Users();
+        try
+        {
+            objusers.UserName = txtUserID.Text.Trim();
+            objusers.Password = txtPassword.Text;
+            objusers.FirstName = txtFirstName.Text;
+            objusers.LastName = txtLastName.Text;
+           
+            if (RadioButtonUser.Checked)
+            {
+                objusers.Roles = Common.userRole;
+            }
+            else
+            {
+                objusers.Roles = Common.customer;
+            }
+
+            
+            returnResult = objUser.UserSignUp(objusers.UserName, objusers.Password, objusers.FirstName, objusers.LastName, objusers.Roles);
+            // return Result 1 shows that User Signup successfully
+            if (returnResult == Constant.DefaultOne)
+            {
+                SendEmail();
+                MultiView1.ActiveViewIndex = MultiView1.ActiveViewIndex + 1;
+            }
+
+            else
+            {
+                lblMessage.Text = "Username already exists.";
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+
+
+    }
+
+    private void SendEmail()
+    {
+        try
+        {
+            EmailHelper objEmail = new EmailHelper();
+            objEmail.ToAddress = txtUserID.Text.Trim();
+            objEmail.Template = "~/EmailTemplates/UserRegistration.htm";
+            objEmail.Subject = "Registration ADB Consulting & CRO Inc.";
+
+            Hashtable objReplacements = new Hashtable();
+            objReplacements.Add("#Name#", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());
+            objReplacements.Add("#User_Name#", txtUserID.Text.Trim());
+            objReplacements.Add("#Password#", txtPassword.Text.Trim());
+
+            objEmail.Replacements = objReplacements;
+            objEmail.Email();
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+}

@@ -1,0 +1,30 @@
+﻿<%@ WebHandler Language="C#" Class="Search" %>
+
+using System;
+//using System.Web;
+using System.Web.Services;
+using DataAccessLayer.DataContext;
+using System.Collections.Generic;
+using System.Linq;
+using System.Data;
+
+public class Search : IHttpHandler {
+
+    DataAccessLayer.DataContext.ADBDataContext objDataContext = new ADBDataContext();
+
+    [WebMethod]
+    public List<GetSkillsListResult> FetchSkillsList(string skillsName)
+    {
+
+        var fetchskills = objDataContext.GetSkillsList()
+        .Where(m => m.skillsName.ToLower().StartsWith(skillsName.ToLower()));
+        return fetchskills.ToList();
+    }
+ 
+    public bool IsReusable {
+        get {
+            return false;
+        }
+    }
+
+}
